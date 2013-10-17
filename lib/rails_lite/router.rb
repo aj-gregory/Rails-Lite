@@ -18,6 +18,7 @@ class Route
   end
 
   def run(req, res)
+    p @pattern.match(req.path)
     controller = @controller.new(req, res)
     controller.invoke_action(@action)
   end
