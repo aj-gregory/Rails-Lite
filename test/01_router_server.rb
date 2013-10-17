@@ -14,6 +14,7 @@ class StatusController < ControllerBase
   def index
     statuses = ["s1", "s2", "s3"]
 
+    p "PARAMS: #{params}"
     render_content(statuses.to_json, "text/json")
   end
 

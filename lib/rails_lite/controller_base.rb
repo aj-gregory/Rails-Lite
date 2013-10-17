@@ -21,6 +21,7 @@ class ControllerBase
   end
 
   def already_rendered?
+    @already_built_response || false
   end
 
   def redirect_to(url)
@@ -43,5 +44,9 @@ class ControllerBase
   end
 
   def invoke_action(name)
+    self.send(name)
+    unless already_rendered?
+      render(name)
+    end
   end
 end
